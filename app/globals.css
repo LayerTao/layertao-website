@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  scroll-behavior: smooth;
 }
 
-@theme inline {
+:root {
+  /* Colors */
+  --black: #000000;
+  --white: #ffffff;
+  --zinc-muted: #a6a6a6;
+  --zinc-dark: #6f6f6f;
+
+  --background: var(--black);
+  --foreground: var(--white);
+  --text-primary: var(--white);
+  --text-secondary: var(--zinc-muted);
+  --primary: var(--white);
+  --primary-foreground: var(--black);
+  --border: var(--zinc-dark);
+  --button-border: var(--zinc-muted);
+
+  /* REMOVE the --font variables from here */
+}
+
+@theme {
+  /* Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-t-primary: var(--text-primary);
+  --color-t-secondary: var(--text-secondary);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+  --color-button-border: var(--button-border);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Fonts - Read directly from the Next.js injected variables */
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --animate-marquee: marquee 150s linear infinite;
+  --animate-sonar-glow: sonar-glow 2s ease-in-out infinite;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* p {
+  letter-spacing: -0.03em;
+} */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.06em;
+}
+
+.btn-link {
+  @apply font-display text-xs text-t-secondary hover:text-t-primary transition-colors leading-[20px] tracking-[0.05em];
+}
+
+@keyframes sonar-glow {
+  0%,
+  100% {
+    opacity: 0.6;
+    box-shadow: 0 0 4px 0px rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 12px 3px rgba(255, 255, 255, 0.8);
+  }
 }
