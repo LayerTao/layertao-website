@@ -71,7 +71,7 @@ export function MobileMenu({ isOpen, onClose, links }: MobileMenuProps) {
             transition={{ delay: 0.4 }}
             className="mt-auto p-8 border-t border-white/5 bg-white/[0.02] space-y-8"
           >
-            <Button className="w-full justify-center py-4 text-[10px] tracking-[0.2em]">
+            <Button onClick={() => { window.open("https://platform.layertao.com", "_blank") }} className="w-full justify-center py-4 text-[10px] tracking-[0.2em]">
               <Image
                 src="/icons/hammer.svg"
                 alt="Hammer"
@@ -79,7 +79,7 @@ export function MobileMenu({ isOpen, onClose, links }: MobileMenuProps) {
                 height={16}
                 className="w-4 h-4"
               />
-              DEV PORTAL - COMING SOON
+              DEV PORTAL
             </Button>
 
             <div className="flex items-center justify-center gap-8 text-white/40">
